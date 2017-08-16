@@ -2,16 +2,29 @@ const express = require("express");
 const router = express.Router();
 
 let list = [];
+let complete = [];
 
 router.get("/", function(req, res){
-  res.render("view");
+  res.render("view", {lists: list, complete : complete});
 })
 
 router.post("/tasks", function(req, res){
-  let task = req.body.tasks
+  let task = req.body.tasks;
+  let unDone = req.body.incomplete;
+
+
+  if(task){
   list.push(task);
   console.log(list);
-  // req.checkBody("tasks", "cannot be empty").notEmpty();
+} else {
+  complete.push(unDone);
+
+}
+
+
+
+
+// req.checkBody("tasks", "cannot be empty").notEmpty();
   // let errors = req.getValidationResult();
   // let messages = [];
   // let task = req.body.tasks
@@ -28,10 +41,8 @@ router.post("/tasks", function(req, res){
   //
   // };
 
-  res.render("view", {lists: list});
+  res.redirect("/");
 });
-
-
   // res.render("view", info);
 // });
 

@@ -1,9 +1,15 @@
 <!-- <form action="/tasks" method="post">
   <input type="text" name="tasks" placeholder="tasks"/>
   <button type="submit">Submit</button>
-  </form>
+  </form> -->
   {{#lists}}
-  <!-- <form action='/tasks'method="post">
-    <input type="submit" value="" <br> -->
-    <p>{{.}}</p>
+  <form action='/tasks'method="post">
+    <input type="submit" value="{{.}}" name="incomplete"> <br>
+  </form>
 {{/lists}}
+<br>
+<h1>Completed Tasks</h1>
+<br>
+{{#complete}}
+<h3>{{.}}</h3>
+{{/complete}}
