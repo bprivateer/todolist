@@ -2,14 +2,17 @@
   <input type="text" name="tasks" placeholder="tasks"/>
   <button type="submit">Submit</button>
   </form> -->
+
+  <center>
   {{#lists}}
   <form action='/tasks'method="post">
     <input type="submit" value="{{.}}" name="incomplete"> <br>
   </form>
 {{/lists}}
 <br>
-<h1>Completed Tasks</h1>
+<h1>Things NOT to do</h1>
 <br>
 {{#complete}}
 <h3>{{.}}</h3>
 {{/complete}}
+</center>
